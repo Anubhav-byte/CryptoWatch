@@ -15,7 +15,7 @@ class cryptData{
         var jsondata = File(cachedir.path +"/"+filename).readAsStringSync();
         data = convert.jsonDecode(jsondata) as Map<String, dynamic>;
     }else{
-        var url = Uri.parse('http://api.coinlayer.com/list?access_key=26d363c4b0ea49bf66fa7f22469bd100');
+        var url = Uri.parse('http://api.coinlayer.com/list?access_key=');
         var response = await http.get(url);
         var jsonResponse = response.body;
         var tempdir = await getTemporaryDirectory();
@@ -48,7 +48,7 @@ class cryptData{
   }
 
   Future<Map<String, dynamic>> getCryptoValue(var symbol) async {
-    var url = Uri.parse('http://api.coinlayer.com/live?access_key=26d363c4b0ea49bf66fa7f22469bd100&expand=1');
+    var url = Uri.parse('http://api.coinlayer.com/live?access_key=&expand=1');
     var response = await http.get(url);
     // print(response.body);
     var data = convert.jsonDecode(response.body) as Map<String, dynamic>;
